@@ -58,17 +58,17 @@
       <p>Here are a few examples of using Edge Side Includes on Pantheon.</p>
 
       <ul class="nav nav-tabs" id="example-tabs">
-        <li><a href="#home" data-toggle="tab">Home</a></li>
-        <li><a href="#profile" data-toggle="tab">Profile</a></li>
-        <li><a href="#messages" data-toggle="tab">Messages</a></li>
-        <li><a href="#settings" data-toggle="tab">Settings</a></li>
+        <li><a href="#simple" data-toggle="tab">Simple Example</a></li>
+        <li><a href="#check_for_esi" data-toggle="tab">Check For ESI</a></li>
       </ul>
 
       <div class="tab-content">
-        <div class="tab-pane active" id="home">...</div>
-        <div class="tab-pane" id="profile">...</div>
-        <div class="tab-pane" id="messages">...</div>
-        <div class="tab-pane" id="settings">...</div>
+        <div class="tab-pane active" id="simple">
+          <iframe src="/simple/index.php" />
+        </div>
+        <div class="tab-pane" id="check_for_esi">
+          <iframe src="/check_for_esi/index.php" />
+        </div>
       </div>
 
     </div> <!-- /container -->
