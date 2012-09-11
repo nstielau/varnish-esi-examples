@@ -60,14 +60,18 @@
       <ul class="nav nav-tabs" id="example-tabs">
         <li><a href="#simple" data-toggle="tab">Simple Example</a></li>
         <li><a href="#check_for_esi" data-toggle="tab">Check For ESI</a></li>
+        <li><a href="#error_no_header" data-toggle="tab">Errorcase: No header</a></li>
       </ul>
 
       <div class="tab-content">
         <div class="tab-pane active" id="simple">
-          <iframe src="/simple/index.php" />
+          <iframe src="/simple/index.php"></iframe>
         </div>
         <div class="tab-pane" id="check_for_esi">
-          <iframe src="/check_for_esi/index.php" />
+          <iframe src="/check_for_esi/index.php"></iframe>
+        </div>
+        <div class="tab-pane" id="error_no_header">
+          <iframe src="/error_no_header/index.php"></iframe>
         </div>
       </div>
 
