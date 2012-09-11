@@ -54,8 +54,22 @@
 
     <div class="container">
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <h1>Pantheon Varnish ESI Examples</h1>
+      <p>Here are a few examples of using Edge Side Includes on Pantheon.</p>
+
+      <ul class="nav nav-tabs" id="example-tabs">
+        <li><a href="#home" data-toggle="tab">Home</a></li>
+        <li><a href="#profile" data-toggle="tab">Profile</a></li>
+        <li><a href="#messages" data-toggle="tab">Messages</a></li>
+        <li><a href="#settings" data-toggle="tab">Settings</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="home">...</div>
+        <div class="tab-pane" id="profile">...</div>
+        <div class="tab-pane" id="messages">...</div>
+        <div class="tab-pane" id="settings">...</div>
+      </div>
 
     </div> <!-- /container -->
 
@@ -75,7 +89,16 @@
     <script src="/js/bootstrap-collapse.js"></script>
     <script src="/js/bootstrap-carousel.js"></script>
     <script src="/js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript>
+    $(function () {
+      $('#example-tabs a:first').tab('show');
+    })
 
+    $('#example-tabs a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    })
+    </script>
   </body>
 </html>
 
