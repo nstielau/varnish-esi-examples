@@ -1,4 +1,7 @@
-
+<?php 
+header("Cache-Control: max-age=0");
+$examples = array('simple', 'check_for_esi', 'error_no_header', 'error_not_xml');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,12 +44,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">Pantheon Varnish ESI Examples</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -57,23 +58,42 @@
 
       <h1>Pantheon Varnish ESI Examples</h1>
       <p>Here are a few examples of using Edge Side Includes on Pantheon.</p>
+      <p>You can see the code for these examples on <a href="https://github.com/nstielau/varnish-esi-examples">Github</a></p>
 
       <ul class="nav nav-tabs" id="example-tabs">
-        <li><a href="#simple" data-toggle="tab">Simple Example</a></li>
-        <li><a href="#check_for_esi" data-toggle="tab">Check For ESI</a></li>
-        <li><a href="#error_no_header" data-toggle="tab">Errorcase: No header</a></li>
+<?php foreach ($examples as &$example) { ?>
+        <li><a href="#<?php echo $example?>" data-toggle="tab"><?php echo $example; ?></a></li>
+<?php } ?>
       </ul>
 
+
       <div class="tab-content">
-        <div class="tab-pane active" id="simple">
-          <iframe src="/simple/index.php"></iframe>
+      <?php
+      $firsttab = TRUE;
+      foreach ($examples as &$example) { 
+      ?>
+        <div class="tab-pane <?php if($firsttab){echo 'active';} $firsttab = FALSE;?>" id="<?php echo $example ?>">
+          <h2>Rendered</h2>
+          <pre>
+<?php
+          $host = $_SERVER['HTTP_HOST'];
+          $response = file_get_contents("http://$host/$example/index.php");
+          echo htmlentities($response);
+?>
+          </pre>
+
+          <h2>Code</h2>
+          <pre>
+<?php
+          $filename = "./$example/index.php";
+          $fh = fopen($filename, 'r');
+          $theData = fread($fh, filesize($filename));
+          fclose($fh);
+          echo htmlentities($theData);
+?>
+          </pre>
         </div>
-        <div class="tab-pane" id="check_for_esi">
-          <iframe src="/check_for_esi/index.php"></iframe>
-        </div>
-        <div class="tab-pane" id="error_no_header">
-          <iframe src="/error_no_header/index.php"></iframe>
-        </div>
+        <?php } ?>
       </div>
 
     </div> <!-- /container -->
