@@ -104,13 +104,13 @@ $examples = array('simple', 'check_for_esi', 'error_no_header', 'error_not_xml')
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script type="text/javascript>
-    $(function () {
-      $('#example-tabs a:first').tab('show');
-    })
-
     $('#example-tabs a').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
+    })
+
+    $(function () {
+      $('#example-tabs a:first').tab('show');
     })
     </script>
   </body>
