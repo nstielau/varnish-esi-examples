@@ -57,7 +57,7 @@ $examples = array('simple', 'check_for_esi', 'error_no_header', 'error_not_xml')
     <div class="container">
 
       <h1>Pantheon Varnish ESI Examples</h1>
-      <p>Here are a few examples of using Edge Side Includes on Pantheon.</p>
+      <p>Here are a few examples of using Edge Side Includes on Pantheon, including checking request headers for ESI capabilities and setting response headers to indicate ESI content, as per <a href="http://www.w3.org/TR/edge-arch">W3C Edge Architecture Specification</a></p>
       <p>You can see the code for these examples on <a href="https://github.com/nstielau/varnish-esi-examples">Github</a></p>
 
       <ul class="nav nav-tabs" id="example-tabs">
